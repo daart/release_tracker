@@ -6,7 +6,9 @@ from sqlalchemy import pool
 from alembic import context
 
 # Import our models so Alembic can see them!
-from release_tracker import models  # noqa: F401
+
+from sqlmodel import SQLModel
+from release_tracker.models.project import Project  # noqa: F401
 from release_tracker.config import get_settings
 
 # this is the Alembic Config object, which provides
@@ -25,7 +27,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+target_metadata = SQLModel.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

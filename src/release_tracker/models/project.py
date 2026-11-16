@@ -22,7 +22,7 @@ class Project(ProjectBase, table=True):
     __tablename__ = "projects"
 
     id: int | None = Field(default=None, primary_key=True)
-    sluq: str = Field(unique=True)
+    slug: str = Field(unique=True)
 
     created_at: datetime = Field(default_factory=get_utc_now, sa_column=Column(DateTime(timezone=True), nullable=False))
 
